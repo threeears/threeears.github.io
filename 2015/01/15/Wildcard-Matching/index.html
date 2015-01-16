@@ -95,23 +95,23 @@
 
 <h2 id="1-_Naive_and_General_Solution:_Dynamic_Programming">1. Naive and General Solution: Dynamic Programming</h2>
 <p>My naive solution is to use a two-dimensional boolean matrix as the memorization.</p>
-<h3 id="1-Initialization:">1.Initialization:</h3>
+<h3 id="Initialization:">Initialization:</h3>
 <p>It’s important to notice that empty string comparison is better to be included as special cases: dp[0][0],dp[i][0] and dp[0][j], therefore, the matrix size should be (s.length()+1) * (p.length()+1)</p>
 <h3 id="2-The_structure">2.The structure</h3>
 <pre><code>        <span class="keyword">dp</span>[<span class="keyword">i</span>][<span class="keyword">j</span>]=<span class="keyword">dp</span>[<span class="keyword">i</span>-<span class="number">1</span>][<span class="keyword">j</span>-<span class="number">1</span>] <span class="keyword">if</span> <span class="keyword">s</span>.charAt(<span class="keyword">i</span>)==<span class="keyword">p</span>.charAt(<span class="keyword">j</span>) || <span class="keyword">p</span>.charAt(<span class="keyword">j</span>)==<span class="string">'*'</span> ||<span class="keyword">p</span>.charAt(<span class="keyword">j</span>)==<span class="string">'?'</span>
                  <span class="keyword">dp</span>[<span class="keyword">i</span>-<span class="number">1</span>][<span class="keyword">j</span>]  <span class="keyword">if</span> <span class="keyword">p</span>.charAt(<span class="keyword">j</span>)=<span class="string">'*'</span> //use * <span class="keyword">to</span> <span class="built_in">match</span> sequential <span class="built_in">string</span>
                  <span class="keyword">dp</span>[<span class="keyword">i</span>][<span class="keyword">j</span>-<span class="number">1</span>]     <span class="keyword">if</span> <span class="keyword">p</span>.charAt(<span class="keyword">j</span>)=<span class="string">'*'</span> // use * <span class="keyword">to</span> <span class="built_in">match</span> <span class="built_in">empty</span> <span class="built_in">string</span>
-</code></pre><h3 id="3-Complexity">3.Complexity</h3>
+</code></pre><h3 id="Complexity">Complexity</h3>
 <p>  Memory: O(MN)<br>  Time: O(MN)</p>
-<h3 id="4-Probelm_of_this_implementation:">4.Probelm of this implementation:</h3>
+<h3 id="Probelm_of_this_implementation:">Probelm of this implementation:</h3>
 <p>I used two way to implement the method above, one is passed and the other is warned with “Memory Limit Exceed”.I’ve tried to figure out why but still do not have a clue yet because I’ve used the exact same data structre only a little bit different when dealing with the index of the matrix. And both implementation works well on my Eclipse.</p>
 <p>However, to be frankly, it is kind of wasting memory if using two dimensional matrix. one solution to fix is compress into one dimension dp. I will try that later.</p>
 <h2 id="2-_Better_and_Probelm-specific_Solution:_Make_full_use_of_Pointers">2. Better and Probelm-specific Solution: Make full use of Pointers</h2>
-<h3 id="1-How_the_solution_comes_up_and_why?">1.How the solution comes up and why?</h3>
+<h3 id="How_the_solution_comes_up_and_why?">How the solution comes up and why?</h3>
 <p>DP solution is too general, many problems can be solved in the same way as it computed every possible solution and is guarenteed to be right. Therefore, it would cost more time and space and not so problem-oriented effecient. </p>
 <p>For this problem, we can find certain pattern when thinking as a human-being instead of a computer. How would our brain deal with the problem? Simply, we would compare the two strings s and p at the same time. Whenever came across a star, we notice that this is something special, different operations can be applied here but we do not know which one to choose at the present: match star as empty string, match star as sequential string or just match for the current character? Obviously, one way to solve this is to remember the place of the star, try one of the possibilities, if success, then continue comparing s and p at the same time, if failed, go back to the last star position and try next possibility. </p>
 <p>Be careful when elements in the s are all matched successful but there is still some elements left in p without being processed. If all the left-overs are starts, then could be considered successfull match.</p>
-<h3 id="2-_Complexity">2. Complexity</h3>
+<h3 id="Complexity-1">Complexity</h3>
 <p>Space complexity is much smaller compared to DP. We only use constant space as pointers, O(1)<br>Time complexity depends on the situation, smallest can be O(M+N) when no tracing backing the preivous ‘<em>‘ is needed. Largest can be O(M</em>N), but generally smaller than what is compared to DP.</p>
 <h4 id="Finally,_go_to_my_GitHub_for_the_solution">Finally, go to my <a href="https://github.com/threeears/Leetcode/blob/master/WildMatching/Solution.java" target="_blank" rel="external">GitHub</a> for the solution</h4>
 
