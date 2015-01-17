@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015 | threears&#39;blog</title>
+  <title>Tag: CTCI | threears&#39;blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="threears'blog">
-<meta property="og:url" content="http://threeears.github.io/blog/archives/2015/">
+<meta property="og:url" content="http://threeears.github.io/blog/tags/CTCI/">
 <meta property="og:site_name" content="threears'blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -119,72 +119,6 @@
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bit-Operation/">Bit Operation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CTCI/">CTCI</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Wildcard-Matching" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/15/Wildcard-Matching/" class="article-date">
-  <time datetime="2015-01-15T23:12:22.000Z" itemprop="datePublished">Jan 15 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/15/Wildcard-Matching/">Wildcard Matching</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>This problem is on <a href="https://oj.leetcode.com/problems/wildcard-matching/" target="_blank" rel="external">Leetcode</a></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Implement wildcard pattern matching <span class="operator">with</span> support <span class="keyword">for</span> <span class="string">'?'</span> <span class="operator">and</span> <span class="string">'*'</span>.</div><div class="line"><span class="string">'?'</span> Matches <span class="keyword">any</span> single <span class="keyword">character</span>.<span class="string">'*'</span> Matches <span class="keyword">any</span> sequence <span class="operator">of</span> <span class="keyword">characters</span> (including <span class="operator">the</span> <span class="constant">empty</span> sequence).</div><div class="line">The matching should cover <span class="operator">the</span> entire input <span class="keyword">string</span> (<span class="operator">not</span> partial).</div><div class="line">The <span class="function"><span class="keyword">function</span> <span class="title">prototype</span> <span class="title">should</span> <span class="title">be</span>:</span></div><div class="line">bool isMatch(const <span class="keyword">char</span> *s, const <span class="keyword">char</span> *p)</div><div class="line">Some examples:</div><div class="line">isMatch(<span class="string">"aa"</span>,<span class="string">"a"</span>) → <span class="constant">false</span></div><div class="line">isMatch(<span class="string">"aa"</span>,<span class="string">"aa"</span>) → <span class="constant">true</span></div><div class="line">isMatch(<span class="string">"aaa"</span>,<span class="string">"aa"</span>) → <span class="constant">false</span></div><div class="line">isMatch(<span class="string">"aa"</span>, <span class="string">"*"</span>) → <span class="constant">true</span></div><div class="line">isMatch(<span class="string">"aa"</span>, <span class="string">"a*"</span>) → <span class="constant">true</span></div><div class="line">isMatch(<span class="string">"ab"</span>, <span class="string">"?*"</span>) → <span class="constant">true</span></div><div class="line">isMatch(<span class="string">"aab"</span>, <span class="string">"c*a*b"</span>) → <span class="constant">false</span></div></pre></td></tr></table></figure>
-
-<h2 id="1-_Naive_and_General_Solution:_Dynamic_Programming">1. Naive and General Solution: Dynamic Programming</h2>
-<p>My naive solution is to use a two-dimensional boolean matrix as the memorization.</p>
-<h3 id="Initialization:">Initialization:</h3>
-<p>It’s important to notice that empty string comparison is better to be included as special cases: dp[0][0],dp[i][0] and dp[0][j], therefore, the matrix size should be (s.length()+1) * (p.length()+1)</p>
-<h3 id="Structure">Structure</h3>
-<pre><code>        <span class="keyword">dp</span>[<span class="keyword">i</span>][<span class="keyword">j</span>]=<span class="keyword">dp</span>[<span class="keyword">i</span>-<span class="number">1</span>][<span class="keyword">j</span>-<span class="number">1</span>] <span class="keyword">if</span> <span class="keyword">s</span>.charAt(<span class="keyword">i</span>)==<span class="keyword">p</span>.charAt(<span class="keyword">j</span>) || <span class="keyword">p</span>.charAt(<span class="keyword">j</span>)==<span class="string">'*'</span> ||<span class="keyword">p</span>.charAt(<span class="keyword">j</span>)==<span class="string">'?'</span>
-                 <span class="keyword">dp</span>[<span class="keyword">i</span>-<span class="number">1</span>][<span class="keyword">j</span>]  <span class="keyword">if</span> <span class="keyword">p</span>.charAt(<span class="keyword">j</span>)=<span class="string">'*'</span> //use * <span class="keyword">to</span> <span class="built_in">match</span> sequential <span class="built_in">string</span>
-                 <span class="keyword">dp</span>[<span class="keyword">i</span>][<span class="keyword">j</span>-<span class="number">1</span>]     <span class="keyword">if</span> <span class="keyword">p</span>.charAt(<span class="keyword">j</span>)=<span class="string">'*'</span> // use * <span class="keyword">to</span> <span class="built_in">match</span> <span class="built_in">empty</span> <span class="built_in">string</span>
-</code></pre><h3 id="Complexity">Complexity</h3>
-<p>  Memory: O(MN)<br>  Time: O(MN)</p>
-<h3 id="Probelm_of_this_implementation:">Probelm of this implementation:</h3>
-<p>I used two way to implement the method above, one is passed and the other is warned with “Memory Limit Exceed”.I’ve tried to figure out why but still do not have a clue yet because I’ve used the exact same data structre only a little bit different when dealing with the index of the matrix. And both implementation works well on my Eclipse.</p>
-<p>However, to be frankly, it is kind of wasting memory if using two dimensional matrix. one solution to fix is compress into one dimension dp. I will try that later.</p>
-<h2 id="2-_Better_and_Probelm-specific_Solution:_Make_full_use_of_Pointers">2. Better and Probelm-specific Solution: Make full use of Pointers</h2>
-<h3 id="How_the_solution_comes_up_and_why?">How the solution comes up and why?</h3>
-<p>DP solution is too general, many problems can be solved in the same way as it computed every possible solution and is guarenteed to be right. Therefore, it would cost more time and space and not so problem-oriented effecient. </p>
-<p>For this problem, we can find certain pattern when thinking as a human-being instead of a computer. How would our brain deal with the problem? Simply, we would compare the two strings s and p at the same time. Whenever came across a star, we notice that this is something special, different operations can be applied here but we do not know which one to choose at the present: match star as empty string, match star as sequential string or just match for the current character? Obviously, one way to solve this is to remember the place of the star, try one of the possibilities, if success, then continue comparing s and p at the same time, if failed, go back to the last star position and try next possibility. </p>
-<p>Be careful when elements in the s are all matched successful but there is still some elements left in p without being processed. If all the left-overs are starts, then could be considered successfull match.</p>
-<h3 id="Complexity-1">Complexity</h3>
-<p>Space complexity is much smaller compared to DP. We only use constant space as pointers, O(1)<br>Time complexity depends on the situation, smallest can be O(M+N) when no tracing backing the preivous ‘<em>‘ is needed. Largest can be O(M</em>N), but generally smaller than what is compared to DP.</p>
-<h4 id="Finally,_go_to_my_GitHub_for_the_solution">Finally, go to my <a href="https://github.com/threeears/Leetcode/blob/master/WildMatching/Solution.java" target="_blank" rel="external">GitHub</a> for the solution</h4>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://threeears.github.io/blog/2015/01/15/Wildcard-Matching/" data-id="na80kmddadapaw4l" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dynamic-Programming/">Dynamic Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem-Specific/">Problem-Specific</a></li></ul>
 
     </footer>
   </div>
