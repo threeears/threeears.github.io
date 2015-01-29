@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | threears&#39;blog</title>
+  <title>Palindrom Partition | threears&#39;blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="threears'blog">
-<meta property="og:url" content="http://threeears.github.io/blog/archives/">
+  <meta name="description" content="Problem 1: Check a string is a palindrome or not
+If only want to check a string or a substring is a valid palindrome or not, two-pointer scanning is a good choice. This is easy. Just do not forget to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Palindrom Partition">
+<meta property="og:url" content="http://threeears.github.io/blog/2015/01/27/Palindrom-Partition/">
 <meta property="og:site_name" content="threears'blog">
-<meta property="og:description">
+<meta property="og:description" content="Problem 1: Check a string is a palindrome or not
+If only want to check a string or a substring is a valid palindrome or not, two-pointer scanning is a good choice. This is easy. Just do not forget to">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="threears'blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Palindrom Partition">
+<meta name="twitter:description" content="Problem 1: Check a string is a palindrome or not
+If only want to check a string or a substring is a valid palindrome or not, two-pointer scanning is a good choice. This is easy. Just do not forget to">
 
   
     <link rel="alternative" href="/atom.xml" title="threears&#39;blog" type="application/atom+xml">
@@ -61,9 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Palindrom-Partition" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Palindrom-Partition" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/01/27/Palindrom-Partition/" class="article-date">
   <time datetime="2015-01-28T07:56:47.000Z" itemprop="datePublished">Jan 27 2015</time>
@@ -80,8 +81,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/27/Palindrom-Partition/">Palindrom Partition</a>
+    <h1 class="article-title" itemprop="name">
+      Palindrom Partition
     </h1>
   
 
@@ -139,199 +140,20 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Bit-Manipulation" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/16/Bit-Manipulation/" class="article-date">
-  <time datetime="2015-01-16T23:12:22.000Z" itemprop="datePublished">Jan 16 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/16/Bit-Manipulation/">Bit Manipulation</a>
-    </h1>
+    <a href="/2015/01/16/Bit-Manipulation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Bit Manipulation</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>I don’t use bit operation much in everyday life. But I know it’s very efficient in optimizing code.<br>So here I take down some of the best principles to remember from CTCI.</p>
-<h2 id="Basic_Operation:_^_|_&amp;">Basic Operation: ^ | &amp;</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">X^X = <span class="number">0</span>  X^<span class="number">1</span>s = ~X  X^<span class="number">0</span>s = X  </div><div class="line"></div><div class="line">X&X = X  X&<span class="number">1</span>s = X   X&<span class="number">0</span>s = <span class="number">0</span></div><div class="line"></div><div class="line">X|X = X  X|<span class="number">1</span>s = <span class="number">1</span>   X|<span class="number">0</span>s = X</div></pre></td></tr></table></figure>
-
-<h2 id="Common_Bit_Tasks:">Common Bit Tasks:</h2>
-<p>Clear the n rightmost bits of X.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">X && (<span class="number">1</span>&lt;&lt;n)</div></pre></td></tr></table></figure>
-
-<p>Get ith bit of num</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(num & (<span class="number">1</span>&lt;&lt;i)!=<span class="number">0</span>) // <span class="keyword">if</span> result = <span class="number">0</span>, ith bit is <span class="number">0</span>, <span class="keyword">else</span> ith bit is <span class="number">1</span></div></pre></td></tr></table></figure>
-
-<p>Set ith bit of num (to 1)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">num | (<span class="number">1</span>&lt;&lt;i)</div></pre></td></tr></table></figure>
-
-<p>Clear ith bit of num</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~(<span class="number">1</span>&lt;&lt;i) & num</div></pre></td></tr></table></figure>
-
-<p>Clear from MSB(Most Significant Bit|High-Order Bit|Leftmost Bit) to ith bit of num</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(<span class="number">1</span>&lt;&lt;i -<span class="number">1</span>) & num // mask: <span class="number">000101</span> & num serves as clear the clear the first severl zeros</div></pre></td></tr></table></figure>
-
-<p>Clear from 0 to ith bit of num</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int mask = ~(-<span class="number">1</span>&gt;&gt;&gt;(<span class="number">31</span>-i));// &gt;&gt;&gt; left shift zero fill operator  , mask end up being like <span class="number">111100</span></div><div class="line">num & mask</div></pre></td></tr></table></figure>
-
-<p>Update ith bit of num, set its value to v</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(num & ~(<span class="number">1</span>&lt;&lt;i)) | (v&lt;&lt;i)</div></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://threeears.github.io/blog/2015/01/16/Bit-Manipulation/" data-id="whqdp6363ayt2apu" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bit-Operation/">Bit Operation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CTCI/">CTCI</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
-
-  
-    <article id="post-Wildcard-Matching" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/15/Wildcard-Matching/" class="article-date">
-  <time datetime="2015-01-15T23:12:22.000Z" itemprop="datePublished">Jan 15 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/15/Wildcard-Matching/">Wildcard Matching</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>This problem is on <a href="https://oj.leetcode.com/problems/wildcard-matching/" target="_blank" rel="external">Leetcode</a></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Implement wildcard pattern matching <span class="operator">with</span> support <span class="keyword">for</span> <span class="string">'?'</span> <span class="operator">and</span> <span class="string">'*'</span>.</div><div class="line"><span class="string">'?'</span> Matches <span class="keyword">any</span> single <span class="keyword">character</span>.<span class="string">'*'</span> Matches <span class="keyword">any</span> sequence <span class="operator">of</span> <span class="keyword">characters</span> (including <span class="operator">the</span> <span class="constant">empty</span> sequence).</div><div class="line">The matching should cover <span class="operator">the</span> entire input <span class="keyword">string</span> (<span class="operator">not</span> partial).</div><div class="line">The <span class="function"><span class="keyword">function</span> <span class="title">prototype</span> <span class="title">should</span> <span class="title">be</span>:</span></div><div class="line">bool isMatch(const <span class="keyword">char</span> *s, const <span class="keyword">char</span> *p)</div><div class="line">Some examples:</div><div class="line">isMatch(<span class="string">"aa"</span>,<span class="string">"a"</span>) → <span class="constant">false</span></div><div class="line">isMatch(<span class="string">"aa"</span>,<span class="string">"aa"</span>) → <span class="constant">true</span></div><div class="line">isMatch(<span class="string">"aaa"</span>,<span class="string">"aa"</span>) → <span class="constant">false</span></div><div class="line">isMatch(<span class="string">"aa"</span>, <span class="string">"*"</span>) → <span class="constant">true</span></div><div class="line">isMatch(<span class="string">"aa"</span>, <span class="string">"a*"</span>) → <span class="constant">true</span></div><div class="line">isMatch(<span class="string">"ab"</span>, <span class="string">"?*"</span>) → <span class="constant">true</span></div><div class="line">isMatch(<span class="string">"aab"</span>, <span class="string">"c*a*b"</span>) → <span class="constant">false</span></div></pre></td></tr></table></figure>
-
-<h2 id="1-_Naive_and_General_Solution:_Dynamic_Programming">1. Naive and General Solution: Dynamic Programming</h2>
-<p>My naive solution is to use a two-dimensional boolean matrix as the memorization.</p>
-<h3 id="Initialization:">Initialization:</h3>
-<p>It’s important to notice that empty string comparison is better to be included as special cases: dp[0][0],dp[i][0] and dp[0][j], therefore, the matrix size should be (s.length()+1) * (p.length()+1)</p>
-<h3 id="Structure">Structure</h3>
-<pre><code>        <span class="keyword">dp</span>[<span class="keyword">i</span>][<span class="keyword">j</span>]=<span class="keyword">dp</span>[<span class="keyword">i</span>-<span class="number">1</span>][<span class="keyword">j</span>-<span class="number">1</span>] <span class="keyword">if</span> <span class="keyword">s</span>.charAt(<span class="keyword">i</span>)==<span class="keyword">p</span>.charAt(<span class="keyword">j</span>) || <span class="keyword">p</span>.charAt(<span class="keyword">j</span>)==<span class="string">'*'</span> ||<span class="keyword">p</span>.charAt(<span class="keyword">j</span>)==<span class="string">'?'</span>
-                 <span class="keyword">dp</span>[<span class="keyword">i</span>-<span class="number">1</span>][<span class="keyword">j</span>]  <span class="keyword">if</span> <span class="keyword">p</span>.charAt(<span class="keyword">j</span>)=<span class="string">'*'</span> //use * <span class="keyword">to</span> <span class="built_in">match</span> sequential <span class="built_in">string</span>
-                 <span class="keyword">dp</span>[<span class="keyword">i</span>][<span class="keyword">j</span>-<span class="number">1</span>]     <span class="keyword">if</span> <span class="keyword">p</span>.charAt(<span class="keyword">j</span>)=<span class="string">'*'</span> // use * <span class="keyword">to</span> <span class="built_in">match</span> <span class="built_in">empty</span> <span class="built_in">string</span>
-</code></pre><h3 id="Complexity">Complexity</h3>
-<p>  Memory: O(MN)<br>  Time: O(MN)</p>
-<h3 id="Problem_of_this_implementation:">Problem of this implementation:</h3>
-<p>I used two way to implement the method above, one is passed and the other is warned with “Memory Limit Exceed”.I’ve tried to figure out why but still do not have a clue yet because I’ve used the exact same data structre only a little bit different when dealing with the index of the matrix. And both implementation works well on my Eclipse.</p>
-<p>However, to be frankly, it is kind of wasting memory if using two dimensional matrix. one solution to fix is compress into one dimension dp. I will try that later.</p>
-<h2 id="2-_Better_and_Problem-specific_Solution:_Make_full_use_of_Pointers">2. Better and Problem-specific Solution: Make full use of Pointers</h2>
-<h3 id="How_the_solution_comes_up_and_why?">How the solution comes up and why?</h3>
-<p>DP solution is too general, many problems can be solved in the same way as it computed every possible solution and is guarenteed to be right. Therefore, it would cost more time and space and not so problem-oriented effecient. </p>
-<p>For this problem, we can find certain pattern when thinking as a human-being instead of a computer. How would our brain deal with the problem? Simply, we would compare the two strings s and p at the same time. Whenever came across a star, we notice that this is something special, different operations can be applied here but we do not know which one to choose at the present: match star as empty string, match star as sequential string or just match for the current character? Obviously, one way to solve this is to remember the place of the star, try one of the possibilities, if success, then continue comparing s and p at the same time, if failed, go back to the last star position and try next possibility. </p>
-<p>Be careful when elements in the s are all matched successful but there is still some elements left in p without being processed. If all the left-overs are starts, then could be considered successfull match.</p>
-<h3 id="Complexity-1">Complexity</h3>
-<p>Space complexity is much smaller compared to DP. We only use constant space as pointers, O(1)<br>Time complexity depends on the situation, smallest can be O(M+N) when no tracing backing the preivous ‘<em>‘ is needed. Largest can be O(M</em>N), but generally smaller than what is compared to DP.</p>
-<h4 id="Finally,_go_to_my_GitHub_for_the_solution">Finally, go to my <a href="https://github.com/threeears/Leetcode/blob/master/WildMatching/Solution.java" target="_blank" rel="external">GitHub</a> for the solution</h4>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://threeears.github.io/blog/2015/01/15/Wildcard-Matching/" data-id="na80kmddadapaw4l" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dynamic-Programming/">Dynamic Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Problem-Specific/">Problem-Specific</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/26/hello-world/" class="article-date">
-  <time datetime="2014-11-26T23:12:22.000Z" itemprop="datePublished">Nov 26 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/26/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://threeears.github.io/blog/2014/11/26/hello-world/" data-id="d97e87x85aa29vuc" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
 </section>
         
           <aside id="sidebar">
